@@ -89,7 +89,7 @@ moment and 10.000 MCPs in five years.
 - System data is backed up every month to prevent data loss
 
 #### Use-case diagram for the whole system
-![](/Picture/Task%201.2.png?raw=true)
+![Use case diagram for WholeSysTem](/Picture/Task%201.2.png?raw=true)
 
 | Use Name             | Use Case: Task Assignment     | 
 | ---                  | ---                       |
@@ -99,7 +99,10 @@ moment and 10.000 MCPs in five years.
 | **Description**      | Assign task for janitors and collectors |
 | **Trigger**          | Click the button “Assign Task”          |
 | **Preconditions**    | PRE-1. System available <br> PRE-2. Device connects to the Internet|
-| **Postconditions**   | POST-1. Successfully assigned the janitor or collectors. <br> POST-2. Notify the task to the worker <br> POST-3. Record the task to the   |
+| **Postconditions**   | POST-1. Successfully assigned the janitor or collectors. <br> POST-2. Notify the task to the worker <br> POST-3. Record the task to the database  |
 | **Normal Flow**      |  1. Back officer chooses the assignee. <br> 2. The system checks the availability of the assignee.<br> 3. Back officer choose day of work. <br>4. The system displays the info of all vehicles. <br> 5. Back officer chooses the vehicle for the assignee. <br> 6. Back officer chooses the MCPs. <br> 7. Back officer determines routes for the assignee. <br> 8. The system checks the availability of the routes. <br> 9. Send the notification to the assigned worker.|
 | **Alternative Flow** | Alternative flow 1: <br> At step 2: <br> 2.a. Back officers can view the calendar to check the availability of assignee. <br>  <br> Alternative flow 2: <br> At step 4: <br> 4.a Back officers view the information of the vehicle <br> 4.b Back officers choose the vehicle for the assignee. <br>  <br>  Alternative flow 3: <br> At step 5: <br> 6.a Back officers view the information of the MCPs <br> 6.b Back officers choose the MCPs for routing. <br>   <br> Alternative flow 4: <br> At step 4: <br> 8.a Back officers can view the map to check the availability of the route. |
 | **Exceptions**       | Exception 1: <br> At step 1: <br> 2.a. Assignee is not available <br> Return to step 1 in Normal Flows        |
+
+#### Use-case diagram for the whole system
+![Use case diagram for Task Assignment](/Picture/Task%201.3.png?raw=true)
