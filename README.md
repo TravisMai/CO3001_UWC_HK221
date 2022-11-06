@@ -9,7 +9,7 @@
 ## Members
 - Lê Tuấn Hưng (2052508)
 - Mai Hữu Nghĩa (2052612)
-- Trần Trí Đạt (2042443)
+- Trần Trí Đạt (2052443)
 - Đinh Xuân Phú (2052650)
 - Dương Gia An (1952163)
 
@@ -89,3 +89,4 @@ moment and 10.000 MCPs in five years.
 - System data is backed up every month to prevent data loss
 
 #### Use-case diagram for the whole system
+![](/Picture/Task 1.2.png)
