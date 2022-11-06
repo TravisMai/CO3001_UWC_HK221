@@ -30,7 +30,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-inverse sidebar navbar-fixed-top" role="navigation">
+<nav class="navbar  sidebar navbar-fixed-top" role="navigation" style="background-color:#e7fff2 ">
     <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -40,7 +40,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="task-info.php"><span style="color: #5bcad9; font-weight: bold;">ETMS</span></a>
+      <a class="navbar-brand" href="task-info.php"><span style="color: #5bcad9; font-weight: bold;">UWC 2.0</span></a>
     </div>
 
     <?php
