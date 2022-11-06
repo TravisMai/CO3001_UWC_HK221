@@ -89,4 +89,25 @@ moment and 10.000 MCPs in five years.
 - System data is backed up every month to prevent data loss
 
 #### Use-case diagram for the whole system
-![](/Picture/Task 1.2.png)
+![](/Picture/Task%201.2.png?raw=true)
+
+| Use Name             | Use Case: Task Assignment     | 
+| ---                  | ---                       |
+| **Created By**       | QLDA Team                 |
+| **Date Created**     | Sep 18, 2022              |
+| **Primary Actor**    | Back Officer              |
+| **Description**      | Assign task for janitors and collectors |
+| **Trigger**          | Click the button “Assign Task”          |
+| **Preconditions**    | PRE-1. System available <br> PRE-2. Device connects to the Internet|
+| **Postconditions**   | POST-1.Successfully assigned the janitor or collectors. <br> POST-2. Notify the task to the worker <br> POST-3. Record the task to the   |
+| **Normal Flow**      | 1. Back officer chooses the assignee.
+2. The system checks the availability of the assignee.
+3. Back officer choose day of work
+4. The system displays the info of all vehicles.
+5. Back officer chooses the vehicle for the assignee.
+6. Back officer chooses the MCPs.
+7. Back officer determines routes for the assignee.
+8. The system checks the availability of the routes.
+9. Send the notification to the assigned worker.|
+| **Alternative Flow** | - End users first triggers the flow by adding any meal to their cart <br> - They can either add more food or drink to the cart or choose to view cart <br> -  After viewing the cart, the users can proceed to checkout <br> - If **delivery** option is picked, the users must provide delivery information before payment <br> - When done, the users are sent directly to the purchasing site, where they can choose payment method and enter the banking information <br> - The 3rd party bank issuer is involved to handle the transaction at this point <br> - Upon successful payment, users are encouraged to give feedback on their ordering experience <br> - If any feedback is given, it will be recored by the system <br> - In the mean time, clerks verify the purchased order by confirming it or canceling it <br> - If order is plausible, it will be recorded by the system; otherwise, a refund is processed |
+| **Exceptions**       | The system is down <br> Order is placed in non-working hours <br> Number of orders per day exceeds 300         |
