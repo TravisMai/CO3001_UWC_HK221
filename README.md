@@ -104,5 +104,15 @@ moment and 10.000 MCPs in five years.
 | **Alternative Flow** | Alternative flow 1: <br> At step 2: <br> 2.a. Back officers can view the calendar to check the availability of assignee. <br>  <br> Alternative flow 2: <br> At step 4: <br> 4.a Back officers view the information of the vehicle <br> 4.b Back officers choose the vehicle for the assignee. <br>  <br>  Alternative flow 3: <br> At step 5: <br> 6.a Back officers view the information of the MCPs <br> 6.b Back officers choose the MCPs for routing. <br>   <br> Alternative flow 4: <br> At step 4: <br> 8.a Back officers can view the map to check the availability of the route. |
 | **Exceptions**       | Exception 1: <br> At step 1: <br> 2.a. Assignee is not available <br> Return to step 1 in Normal Flows        |
 
-#### Use-case diagram for the whole system
+#### Use-case diagram for the Task Assignment Module
 ![Use case diagram for Task Assignment](/Picture/Task%201.3.png?raw=true)
+
+## Task 2
+### Task 2.1
+First, we need to determine the process steps in Task Assignment.
+In task 1.3, we have drawn the Task Assignment Module by Use-case diagram.
+Process steps:
+Go to Task Assignment → Choose worker → Choose available day → Pick the vehicle → Choose vehicle → Choose MCP → Create route → Notify to worker.
+The below activity diagram captures the business process between systems and the stakeholders in Task Assignment Module.
+
+![Activity diagram for Task Assignment](/Picture/Task%202.1.png?raw=true)
