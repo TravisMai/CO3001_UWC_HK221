@@ -4,7 +4,7 @@
 **Task 2**  System modelling\
 **Task 3**  Architecture Design\
 **Task 4**  Implementation - Sprint 1\
-**Date:** November 9<sup>th<sup>, 2022 (task 4)
+**Date:** November 9<sup>th</sup>, 2022 (task 4)
 
 ## Members
 - Lê Tuấn Hưng (2052508)
