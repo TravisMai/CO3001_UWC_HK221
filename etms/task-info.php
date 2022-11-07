@@ -83,7 +83,38 @@ include("include/sidebar.php");
                         <?php } ?>
                       </select>
                     </div>
-                   
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label text-p-reset">Phương tiện</label>
+                    <div class="">
+                      <?php 
+                        $sql = "SELECT user_id, fullname FROM tbl_admin WHERE user_role = 2";
+                        $info = $obj_admin->manage_all_info($sql);   
+                      ?>
+                      <select class="form-control rounded-0" name="assign_to" id="aassign_to" required>
+                        <option value="">Chọn phương tiện...</option>
+
+                        <?php while($row = $info->fetch(PDO::FETCH_ASSOC)){ ?>
+                        <option value="<?php echo $row['user_id']; ?>"><?php echo $row['fullname']; ?></option>
+                        <?php } ?>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label text-p-reset">Chọn địa điểm</label>
+                    <div class="">
+                      <?php 
+                        $sql = "SELECT user_id, fullname FROM tbl_admin WHERE user_role = 2";
+                        $info = $obj_admin->manage_all_info($sql);   
+                      ?>
+                      <select class="form-control rounded-0" name="assign_to" id="aassign_to" required>
+                        <option value="">Chọn địa điểm...</option>
+
+                        <?php while($row = $info->fetch(PDO::FETCH_ASSOC)){ ?>
+                        <option value="<?php echo $row['user_id']; ?>"><?php echo $row['fullname']; ?></option>
+                        <?php } ?>
+                      </select>
+                    </div>
                   </div>
                   <div class="form-group">
                   </div>
@@ -118,7 +149,7 @@ include("include/sidebar.php");
               <div class="btn-group">
                 <?php if($user_role == 1){ ?>
                 <div class="btn-group">
-                  <button class="btn btn-info btn-menu" data-toggle="modal" data-target="#myModal">Assign New Task</button>
+                  <button class="btn btn-info btn-menu" data-toggle="modal" data-target="#myModal">Giao việc mới</button>
                 </div>
               <?php } ?>
 
@@ -128,7 +159,7 @@ include("include/sidebar.php");
 
             
           </div>
-          <center ><h3>Task Management Section</h3></center>
+          <center ><h3>Khu vực quản lý công việc</h3></center>
           <div class="gap"></div>
 
           <div class="gap"></div>
