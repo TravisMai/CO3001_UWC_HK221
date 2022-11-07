@@ -2,7 +2,7 @@
 **Team name** QLDA\
 **Task 1**  Requirement elicitation\
 **Task 2**  System modelling\
-**Task 3**  Architecture Design\
+**Task 3**  Architecture design\
 **Task 4**  Implementation - Sprint 1\
 **Date:** November 9<sup>th</sup>, 2022 (task 4)
 
