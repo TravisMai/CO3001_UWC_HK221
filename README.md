@@ -160,6 +160,7 @@ not included in Task Assignment Module, we draw it to make the system more
 comprehensive).
 #### Class diagram for Task Assignment module
 ![Class diagram for Task Assignment module](/Picture/Task%202.3.png?raw=true)
+
 Task Controller is the bridge between User and private elements in Task. When we create task, there are 4 elements requires: worker information, date of assignment, route information (get from Google API), vehicle information.
 
 ## Task 3
@@ -172,7 +173,9 @@ The MVC model contains three essential components:
 - Controller: acts as the brain of the model, it processes input events (user interactions), select View to display and manipulate Model data if necessary.
 
 #### Diagram for Architectural approach
+
 ![Diagram for architectural approach](/Picture/Task%203.1.png?raw=true)
+
 We choose MVC model due to the following reasons:
 - First, MVC models support rapid and parallel development - Our system is divided into three separate parts which can be implemented independently.
 - Second, the MVC model provides multiple views - Our restaurant site must display various forms of information which can be represented by different views from the model.
