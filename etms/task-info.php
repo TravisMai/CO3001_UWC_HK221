@@ -43,7 +43,7 @@ include("include/sidebar.php");
       <div class="modal-content rounded-0">
         <div class="modal-header rounded-0">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h2 class="modal-title text-center">Assign New Task</h2>
+          <h2 class="modal-title text-center">Giao công việc</h2>
         </div>
         <div class="modal-body rounded-0">
           <div class="row">
@@ -51,38 +51,32 @@ include("include/sidebar.php");
               <form role="form" action="" method="post" autocomplete="off">
                 <div class="form-horizontal">
                   <div class="form-group">
-                    <label class="control-label text-p-reset">Task Title</label>
+                    <label class="control-label text-p-reset">Tên công việc</label>
                     <div class="">
-                      <input type="text" placeholder="Task Title" id="task_title" name="task_title" list="expense" class="form-control rounded-0" id="default" required>
+                      <input type="text" placeholder="Tên công việc" id="task_title" name="task_title" list="expense" class="form-control rounded-0" id="default" required>
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="control-label text-p-reset">Task Description</label>
-                    <div class="">
-                      <textarea name="task_description" id="task_description" placeholder="Text Deskcription" class="form-control rounded-0" rows="5" cols="5"></textarea>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label text-p-reset">Start Time</label>
+                    <label class="control-label text-p-reset">Bắt đầu</label>
                     <div class="">
                       <input type="text" name="t_start_time" id="t_start_time" class="form-control rounded-0">
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="control-label text-p-reset">End Time</label>
+                    <label class="control-label text-p-reset">Kết thúc</label>
                     <div class="">
                       <input type="text" name="t_end_time" id="t_end_time" class="form-control rounded-0">
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="control-label text-p-reset">Assign To</label>
+                    <label class="control-label text-p-reset">Giao cho</label>
                     <div class="">
                       <?php 
                         $sql = "SELECT user_id, fullname FROM tbl_admin WHERE user_role = 2";
                         $info = $obj_admin->manage_all_info($sql);   
                       ?>
                       <select class="form-control rounded-0" name="assign_to" id="aassign_to" required>
-                        <option value="">Select Employee...</option>
+                        <option value="">Chọn nhân viên...</option>
 
                         <?php while($row = $info->fetch(PDO::FETCH_ASSOC)){ ?>
                         <option value="<?php echo $row['user_id']; ?>"><?php echo $row['fullname']; ?></option>
@@ -95,10 +89,10 @@ include("include/sidebar.php");
                   </div>
                   <div class="form-group">
                     <div class="col-sm-offset-3 col-sm-3">
-                      <button type="submit" name="add_task_post" class="btn btn-primary rounded-0 btn-sm">Assign Task</button>
+                      <button type="submit" name="add_task_post" class="btn btn-primary rounded-0 btn-sm">Giao</button>
                     </div>
                     <div class="col-sm-3">
-                      <button type="submit" class="btn btn-default rounded-0 btn-sm" data-dismiss="modal">Cancel</button>
+                      <button type="submit" class="btn btn-default rounded-0 btn-sm" data-dismiss="modal">Hủy</button>
                     </div>
                   </div>
                 </div>
@@ -140,16 +134,16 @@ include("include/sidebar.php");
           <div class="gap"></div>
 
           <div class="table-responsive">
-            <table class="table table-codensed table-custom">
+            <table class="table table-codensed"  style="background-color:#ebfef2">
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>Task Title</th>
-                  <th>Assigned To</th>
-                  <th>Start Time</th>
-                  <th>End Time</th>
-                  <th>Status</th>
-                  <th>Action</th>
+                  <th>Tên công việc</th>
+                  <th>Người phụ trách</th>
+                  <th>Thời gian bắt đầu</th>
+                  <th>Hạn hoàn thành</th>
+                  <th>Trạng thái</th>
+                  <th>Hành động</th>
                 </tr>
               </thead>
               <tbody>
@@ -185,12 +179,12 @@ include("include/sidebar.php");
                   <td>
                     <?php  if($row['status'] == 1){
                         // echo "In Progress <span style='color:#5bcad9;' class=' glyphicon glyphicon-refresh' >";
-                        echo '<small class="label label-warning px-3">In Progress <span class="glyphicon glyphicon-refresh" ></small>';
+                        echo '<small class="label label-warning px-3">Trong tiến trình <span class="glyphicon glyphicon-refresh" ></small>';
                     }elseif($row['status'] == 2){
-                        echo '<small class="label label-success px-3">In Completed <span class="glyphicon glyphicon-ok" ></small>';
+                        echo '<small class="label label-success px-3">Đã hoành thành <span class="glyphicon glyphicon-ok" ></small>';
                         // echo "Completed <span style='color:#00af16;' class=' glyphicon glyphicon-ok' >";
                     }else{
-                        echo '<small class="label label-default border px-3">In Completed <span class="glyphicon glyphicon-remove" ></small>';
+                        echo '<small class="label label-default border px-3">Chưa hoàn thành <span class="glyphicon glyphicon-remove" ></small>';
                     } ?>
                     
                   </td>
