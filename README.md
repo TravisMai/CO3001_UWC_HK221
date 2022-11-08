@@ -202,3 +202,8 @@ The diagram contains 1 application (Client), 1 main components (Server) and 1 co
 
 #### Diagram flow
 When users assign new task. Browser requests the assign form from the Task controller. Task controller gathers info from the models and manages to make Task view display the form (and lists when requested). In the assigning process, Task view will update and display new data which are set and gotten by Task model. Finally, when MCPs are chosen, the controller will request routes from Google API for the user to pick. 
+
+## Task 4
+#### Picture for the interface
+
+![Picture for the interface](/Picture/Task%204.3.png?raw=true)
