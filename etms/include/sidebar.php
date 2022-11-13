@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Employee Task Management System</title>
+  <title>UWC 2.0</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
@@ -27,6 +27,27 @@
       }
     }
   </script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <link rel="apple-touch-icon" sizes="57x57" href="./favicons/trash.png" height="57" width="57">
+    <link rel="apple-touch-icon" sizes="60x60" href="./favicons/trash.png" height="60" width="60">
+    <link rel="apple-touch-icon" sizes="72x72" href="./favicons/trash.png" height="72" width="72">
+    <link rel="apple-touch-icon" sizes="76x76" href="./favicons/trash.png" height="76" width="76">
+    <link rel="apple-touch-icon" sizes="114x114" href="./favicons/trash.png" height="114" width="114">
+    <link rel="apple-touch-icon" sizes="120x120" href="./favicons/trash.png" height="120" width="120">
+    <link rel="apple-touch-icon" sizes="144x144" href="./favicons/trash.png" height="144" width="144">
+    <link rel="apple-touch-icon" sizes="152x152" href="./favicons/trash.png" height="152" width="152">
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicons/trash.png" height="180" width="180">
+    <link rel="icon" type="image/png" href="./favicons/trash.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="./favicons/trash.png" sizes="194x194">
+    <link rel="icon" type="image/png" href="./favicons/trash.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="./favicons/trash.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="./favicons/trash.png" sizes="16x16">
+    <link rel="manifest" href="./favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="./favicons/trash.png">
+    <meta name="msapplication-config" content="./favicons/browserconfig.xml">
+    <meta name="theme-color" content="#66BB6A">
+    <link rel="canonical" href="./">
 </head>
 <body>
 

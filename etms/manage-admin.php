@@ -26,19 +26,19 @@ include("include/sidebar.php");
       <div class="col-md-12">
         <div class="well well-custom">
           <ul class="nav nav-tabs nav-justified nav-tabs-custom">
-            <li class="active"><a href="manage-admin.php">Manage Admin</a></li>
-            <li><a href="admin-manage-user.php">Manage Employee</a></li>
+            <li class="active"><a href="manage-admin.php">Quản lý</a></li>
+            <li><a href="admin-manage-user.php">Nhân viên</a></li>
           </ul>
           <div class="gap"></div>
           <div class="table-responsive">
             <table class="table table-codensed table-custom">
               <thead>
                 <tr>
-                  <th>Serial No.</th>
-                  <th>Name</th>
+                  <th>Stt</th>
+                  <th>Tên</th>
                   <th>Email</th>
-                  <th>Username</th>
-                  <th>Details</th>
+                  <th>Tên đăng nhập</th>
+                  <th>Chi tiết</th>
                 </tr>
               </thead>
               <tbody>

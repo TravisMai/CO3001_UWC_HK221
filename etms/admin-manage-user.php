@@ -53,7 +53,7 @@ if(isset($_POST['add_new_employee'])){
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h2 class="modal-title text-center">Add Employee Info</h2>
+          <h2 class="modal-title text-center">Thêm thông tin nhân viên</h2>
         </div>
         <div class="modal-body">
           <div class="row">
@@ -65,13 +65,13 @@ if(isset($_POST['add_new_employee'])){
                 <div class="form-horizontal">
 
                   <div class="form-group">
-                    <label class="control-label text-p-reset">Fullname</label>
+                    <label class="control-label text-p-reset">Họ và tên</label>
                     <div class="">
                       <input type="text" placeholder="Enter Employee Name" name="em_fullname" list="expense" class="form-control input-custom" id="default" required>
                     </div>
                   </div>
                    <div class="form-group">
-                    <label class="control-label text-p-reset">Username</label>
+                    <label class="control-label text-p-reset">Tên đăng nhập</label>
                     <div class="">
                       <input type="text" placeholder="Enter Employee username" name="em_username" class="form-control input-custom" required>
                     </div>
@@ -89,10 +89,10 @@ if(isset($_POST['add_new_employee'])){
                   </div>
                   <div class="form-group">
                     <div class="col-sm-offset-3 col-sm-3">
-                      <button type="submit" name="add_new_employee" class="btn btn-primary btn-sm rounded-0">Add Employee</button>
+                      <button type="submit" name="add_new_employee" class="btn btn-primary btn-sm rounded-0">Thêm nhân viên</button>
                     </div>
                     <div class="col-sm-3">
-                      <button type="submit" class="btn btn-default btn-sm rounded-0" data-dismiss="modal">Cancel</button>
+                      <button type="submit" class="btn btn-default btn-sm rounded-0" data-dismiss="modal">Hủy</button>
                     </div>
                   </div>
                 </div>
@@ -123,24 +123,24 @@ if(isset($_POST['add_new_employee'])){
           <?php } ?>
             <?php if($user_role == 1){ ?>
                 <div class="btn-group">
-                  <button class="btn btn-primary-custom btn-menu" data-toggle="modal" data-target="#myModal">Add New Employee</button>
+                  <button class="btn btn-primary-custom btn-menu" data-toggle="modal" data-target="#myModal">Thêm nhân viên</button>
                 </div>
               <?php } ?>
           <ul class="nav nav-tabs nav-justified nav-tabs-custom">
-            <li><a href="manage-admin.php">Manage Admin</a></li>
-            <li class="active"><a href="admin-manage-user.php">Manage Employee</a></li>
+            <li><a href="manage-admin.php">Quản lý</a></li>
+            <li class="active"><a href="admin-manage-user.php">Nhân viên</a></li>
           </ul>
           <div class="gap"></div>
           <div class="table-responsive">
             <table class="table table-codensed table-custom">
               <thead>
                 <tr>
-                  <th>Serial No.</th>
-                  <th>Fullname</th>
+                  <th>Stt</th>
+                  <th>Họ và tên</th>
                   <th>Email</th>
-                  <th>Username</th>
-                  <th>Temp Password</th>
-                  <th>Details</th>
+                  <th>Tên đăng nhập</th>
+                  <th>Mật khẩu tạm thời</th>
+                  <th>Chi tiết</th>
                 </tr>
               </thead>
               <tbody>
