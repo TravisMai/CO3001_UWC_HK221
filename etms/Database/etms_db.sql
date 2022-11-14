@@ -42,6 +42,26 @@ CREATE TABLE `attendance_info` (
 INSERT INTO `attendance_info` (`aten_id`, `atn_user_id`, `in_time`, `out_time`, `total_duration`) VALUES
 (1, 1, '2022-11-03 13:35:36', '2022-11-04 10:51:00', '21:15:24'),
 (4, 28, '2022-11-07 15:15:31', '2022-11-07 15:32:41', '00:17:10');
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vehicle_info`
+--
+
+CREATE TABLE `vehicle_info` (
+  `vehicle_id` int(50) NOT NULL,
+  `vehicle_name` varchar(120) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT 0 COMMENT '0 = Not using, 1 = Using, 2 = Not available'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `task_info`
+--
+
+INSERT INTO `vehicle_info` (`vehicle_id`, `vehicle_name`, `status`) VALUES
+(1,'Xe bò',1),
+(2,'Xe ngựa',1),
+(3,'Xe báo',1);
 
 -- --------------------------------------------------------
 
@@ -55,6 +75,7 @@ CREATE TABLE `task_info` (
   `t_start_time` datetime DEFAULT NULL,
   `t_end_time` datetime DEFAULT NULL,
   `t_user_id` int(20) NOT NULL,
+  `v_id` int(50) NOT NULL,
   `status` int(11) NOT NULL DEFAULT 0 COMMENT '0 = incomplete, 1 = In progress, 2 = complete'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -62,10 +83,10 @@ CREATE TABLE `task_info` (
 -- Dumping data for table `task_info`
 --
 
-INSERT INTO `task_info` (`task_id`, `t_title`, `t_start_time`, `t_end_time`, `t_user_id`, `status`) VALUES
-(5, 'dfgdfg', '2022-11-08 12:00:00', '2022-11-09 12:00:00', 28, 0),
-(3, 'test', '2022-11-04 12:00:00', '2022-11-18 12:00:00', 28, 2),
-(4, 'phú dọn rác', '2022-11-09 12:00:00', '2022-11-08 12:00:00', 28, 1);
+INSERT INTO `task_info` (`task_id`, `t_title`, `t_start_time`, `t_end_time`, `t_user_id`, `v_id`, `status`) VALUES
+(5, 'dfgdfg', '2022-11-08 12:00:00', '2022-11-09 12:00:00', 28, 1, 0),
+(3, 'test', '2022-11-04 12:00:00', '2022-11-18 12:00:00', 28, 2,2),
+(4, 'phú dọn rác', '2022-11-09 12:00:00', '2022-11-08 12:00:00', 28, 3,1);
 
 -- --------------------------------------------------------
 
@@ -92,9 +113,10 @@ INSERT INTO `tbl_admin` (`user_id`, `fullname`, `username`, `email`, `password`,
 (28, 'Đinh Xuân Phú', 'phuxuan', 'test@gmail.com', '098f6bcd4621d373cade4e832627b4f6', '', 2);
 
 --
--- Indexes for dumped tables
+-- Indexes for vehicle
 --
-
+ALTER TABLE `vehicle_info`
+  ADD PRIMARY KEY (`vehicle_id`);
 --
 -- Indexes for table `attendance_info`
 --
@@ -114,9 +136,10 @@ ALTER TABLE `tbl_admin`
   ADD PRIMARY KEY (`user_id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT for vehicle
 --
-
+ALTER TABLE `vehicle_info`
+  MODIFY `vehicle_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 --
 -- AUTO_INCREMENT for table `attendance_info`
 --

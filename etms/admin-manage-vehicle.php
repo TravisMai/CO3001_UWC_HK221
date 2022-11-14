@@ -16,27 +16,24 @@ if($user_role != 1){
 }
 
 
-if(isset($_GET['delete_user'])){
+if(isset($_GET['delete_vehicle'])){
   $action_id = $_GET['admin_id'];
 
-  $task_sql = "DELETE FROM task_info WHERE t_user_id = $action_id";
+  $task_sql = "DELETE FROM task_info WHERE v_id = $action_id";
   $delete_task = $obj_admin->db->prepare($task_sql);
   $delete_task->execute();
 
-  $attendance_sql = "DELETE FROM attendance_info WHERE atn_user_id = $action_id";
-  $delete_attendance = $obj_admin->db->prepare($attendance_sql);
-  $delete_attendance->execute();
-  
-  $sql = "DELETE FROM tbl_admin WHERE user_id = :id";
-  $sent_po = "admin-manage-user.php";
-  $obj_admin->delete_data_by_this_method($sql,$action_id,$sent_po);
+  $attendance_sql = "DELETE FROM vehicle_info WHERE vehicle_id = $action_id";
+  $delete_vehicle = $obj_admin->db->prepare($attendance_sql);
+  $delete_vehicle->execute();
+
 }
 
 $page_name="Admin";
 include("include/sidebar.php");
 
-if(isset($_POST['add_new_employee'])){
-  $error = $obj_admin->add_new_user($_POST);
+if(isset($_POST['add_new_vehicle'])){
+  $add_vehicle = $obj_admin->add_new_vehicle($_POST);
 }
 
 ?>
@@ -65,12 +62,12 @@ if(isset($_POST['add_new_employee'])){
                 <div class="form-horizontal">
 
                   <div class="form-group">
-                    <label class="control-label text-p-reset">Họ và tên</label>
+                    <label class="control-label text-p-reset">Tên xe</label>
                     <div class="">
-                      <input type="text" placeholder="Tên nhân viên" name="em_fullname" list="expense" class="form-control input-custom" id="default" required>
+                      <input type="text" placeholder="Tên phương tiện" name="vehicle_name" list="expense" class="form-control input-custom" id="default" required>
                     </div>
                   </div>
-                   <div class="form-group">
+                   <!-- <div class="form-group">
                     <label class="control-label text-p-reset">Tên đăng nhập</label>
                     <div class="">
                       <input type="text" placeholder="Tên dăng nhập của nhân viên" name="em_username" class="form-control input-custom" required>
@@ -81,7 +78,7 @@ if(isset($_POST['add_new_employee'])){
                     <div class="">
                       <input type="email" placeholder="Email nhân viên" name="em_email" class="form-control input-custom" required>
                     </div>
-                  </div>
+                  </div> -->
                   
                  
                   
@@ -89,7 +86,7 @@ if(isset($_POST['add_new_employee'])){
                   </div>
                   <div class="form-group">
                     <div class="col-sm-offset-3 col-sm-3">
-                      <button type="submit" name="add_new_employee" class="btn btn-primary btn-sm rounded-0">Thêm phương tiện</button>
+                      <button type="submit" name="add_new_vehicle" class="btn btn-primary btn-sm rounded-0">Thêm phương tiện</button>
                     </div>
                     <div class="col-sm-3">
                       <button type="submit" class="btn btn-default btn-sm rounded-0" data-dismiss="modal">Hủy</button>
@@ -145,7 +142,7 @@ if(isset($_POST['add_new_employee'])){
               <tbody>
 
               <?php 
-                $sql = "SELECT * FROM tbl_admin WHERE user_role = 2 ORDER BY user_id DESC";
+                $sql = "SELECT * FROM vehicle_info ORDER BY vehicle_id ASC";
                 $info = $obj_admin->manage_all_info($sql);
                 $serial  = 1;
                 $num_row = $info->rowCount();
@@ -155,13 +152,13 @@ if(isset($_POST['add_new_employee'])){
                 while( $row = $info->fetch(PDO::FETCH_ASSOC) ){
               ?>
                 <tr>
-                  <td><?php echo $serial; $serial++; ?></td>
-                  <td><?php echo $row['fullname']; ?></td>
-                  <td><?php echo $row['email']; ?></td>
-                  <td><?php echo $row['username']; ?></td>
-                  <td><?php echo $row['temp_password']; ?></td>
                   
-                  <td><a title="Update Employee" href="update-employee.php?admin_id=<?php echo $row['user_id']; ?>"><span class="glyphicon glyphicon-edit"></span></a>&nbsp;&nbsp;<a title="Delete" href="?delete_user=delete_user&admin_id=<?php echo $row['user_id']; ?>" onclick=" return check_delete();"><span class="glyphicon glyphicon-trash"></span></a></td>
+                  <td><?php echo $row['vehicle_id']; ?></td>
+                  <td><?php echo $row['v_name']; ?></td>
+                  <td><?php echo $row['status']; ?></td>
+                  
+                  
+                  <td><a title="Update Vehicle" href="update-vehicle.php?admin_id=<?php echo $row['user_id']; ?>"><span class="glyphicon glyphicon-edit"></span></a>&nbsp;&nbsp;<a title="Delete" href="?delete_vehicle=delete_vehicle&admin_id=<?php echo $row['user_id']; ?>" onclick=" return check_delete();"><span class="glyphicon glyphicon-trash"></span></a></td>
                 </tr>
                 
               <?php  } ?>

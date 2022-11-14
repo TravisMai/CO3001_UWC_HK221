@@ -461,7 +461,20 @@ class Admin_Class
 		}
 	}
 
+/*----------- add_new_vehicle--------------*/
 
+public function add_new_vehicle($data){
+	$vehicle_name  = $this->test_form_input_data($data['vehicle_name']);
+	$vehicle_status = 0;
+	
+	$add_vehicle = $this->db->prepare("INSERT INTO vehicle_info (vehicle_name, status) VALUES (:y, :z)");
+
+	$add_vehicle->bindparam(':y', $vehicle_name);
+	$add_vehicle->bindparam(':z', $vehicle_status);
+
+	$add_user->execute();
+	
+}
 
 
 
