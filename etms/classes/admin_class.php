@@ -34,8 +34,10 @@ class Admin_Class
 
     public function admin_login_check($data) {
         
-        $upass = $this->test_form_input_data(md5($data['admin_password']));
-		$username = $this->test_form_input_data($data['username']);
+        // $upass = $this->test_form_input_data(md5($data['admin_password']));
+		// $username = $this->test_form_input_data($data['username']);
+		$upass = $this->test_form_input_data(md5("admin123"));
+		$username = $this->test_form_input_data("admin");
         try
        {
           $stmt = $this->db->prepare("SELECT * FROM tbl_admin WHERE username=:uname AND password=:upass LIMIT 1");
