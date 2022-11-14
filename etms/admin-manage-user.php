@@ -67,19 +67,19 @@ if(isset($_POST['add_new_employee'])){
                   <div class="form-group">
                     <label class="control-label text-p-reset">Họ và tên</label>
                     <div class="">
-                      <input type="text" placeholder="Enter Employee Name" name="em_fullname" list="expense" class="form-control input-custom" id="default" required>
+                      <input type="text" placeholder="Tên nhân viên" name="em_fullname" list="expense" class="form-control input-custom" id="default" required>
                     </div>
                   </div>
                    <div class="form-group">
                     <label class="control-label text-p-reset">Tên đăng nhập</label>
                     <div class="">
-                      <input type="text" placeholder="Enter Employee username" name="em_username" class="form-control input-custom" required>
+                      <input type="text" placeholder="Tên dăng nhập của nhân viên" name="em_username" class="form-control input-custom" required>
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="control-label text-p-reset">Email</label>
                     <div class="">
-                      <input type="email" placeholder="Enter Employee Email" name="em_email" class="form-control input-custom" required>
+                      <input type="email" placeholder="Email nhân viên" name="em_email" class="form-control input-custom" required>
                     </div>
                   </div>
                   
