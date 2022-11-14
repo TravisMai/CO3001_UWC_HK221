@@ -28,6 +28,7 @@ include("include/sidebar.php");
           <ul class="nav nav-tabs nav-justified nav-tabs-custom">
             <li class="active"><a href="manage-admin.php">Quản lý</a></li>
             <li><a href="admin-manage-user.php">Nhân viên</a></li>
+            <li><a href="admin-manage-vehicle.php">Phương tiện</a></li>
           </ul>
           <div class="gap"></div>
           <div class="table-responsive">

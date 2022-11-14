@@ -129,6 +129,7 @@ if(isset($_POST['add_new_employee'])){
           <ul class="nav nav-tabs nav-justified nav-tabs-custom">
             <li><a href="manage-admin.php">Quản lý</a></li>
             <li class="active"><a href="admin-manage-user.php">Nhân viên</a></li>
+            <li><a href="admin-manage-vehicle.php">Phương tiện</a></li>
           </ul>
           <div class="gap"></div>
           <div class="table-responsive">
