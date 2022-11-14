@@ -2,7 +2,7 @@
 require 'authentication.php'; // admin authentication check 
 
 // auth check
-if(isset($_SESSION['admin_id']) || 1){
+if(isset($_SESSION['admin_id'])){
   $user_id = $_SESSION['admin_id'];
   $user_name = $_SESSION['admin_name'];
   $security_key = $_SESSION['security_key'];

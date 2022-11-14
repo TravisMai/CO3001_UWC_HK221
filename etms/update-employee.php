@@ -19,7 +19,7 @@ if ($user_role != 1) {
 
 $admin_id = $_GET['admin_id'];
 
-if(isset($_POST['update_current_employee'])){
+if(isset($_POST['update_current_vehicle'])){
 
     $obj_admin->update_user_data($_POST,$admin_id);
 }

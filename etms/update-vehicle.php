@@ -17,23 +17,18 @@ if ($user_role != 1) {
   header('Location: task-info.php');
 }
 
-$admin_id = $_GET['admin_id'];
+$vehicle_id = $_GET['vehicle_id'];
 
-if(isset($_POST['update_current_employee'])){
+if(isset($_POST['update_current_vehicle'])){
 
-    $obj_admin->update_user_data($_POST,$admin_id);
-}
-
-if(isset($_POST['btn_user_password'])){
-
-    $obj_admin->update_user_password($_POST,$admin_id);
+    $obj_admin->update_vehicle_data($_POST,$vehiclde_id);
 }
 
 
-
-$sql = "SELECT * FROM tbl_admin WHERE user_id='$admin_id' ";
+$sql = "SELECT * FROM vehicle_info WHERE vehicle_id='$vehicle_id' ";
 $info = $obj_admin->manage_all_info($sql);
 $row = $info->fetch(PDO::FETCH_ASSOC);
+
         
 $page_name="Admin";
 include("include/sidebar.php");
@@ -51,53 +46,27 @@ include("include/sidebar.php");
           <div class="row">
             <div class="col-md-10 col-md-offset-1">
               <div class="well">
-                <h3 class="text-center bg-primary" style="padding: 7px;">Edit Employee</h3><br>
+                <h3 class="text-center bg-primary" style="padding: 7px;">Edit Vehicle</h3><br>
 
 
                       <div class="row">
                         <div class="col-md-7">
                           <form class="form-horizontal" role="form" action="" method="post" autocomplete="off">
                             <div class="form-group">
-                              <label class="control-label text-p-reset">Fullname</label>
+                              <label class="control-label text-p-reset">Vehicle name</label>
                               <div class="">
-                                <input type="text" value="<?php echo $row['fullname']; ?>" placeholder="Enter Employee Name" name="em_fullname" list="expense" class="form-control rounded-0" id="default" required>
+                                <input type="text" value="<?php echo $row['vehicle_name']; ?>" placeholder="Enter Vehicle Name" name="vehicle_name" list="expense" class="form-control rounded-0" id="default" required>
                               </div>
                             </div>
-                            
-                            <div class="form-group">
-                              <label class="control-label text-p-reset">Username</label>
-                              <div class="">
-                                <input type="text" value="<?php echo $row['username']; ?>" placeholder="Enter Employee Username" name="em_username" class="form-control rounded-0" required>
-                              </div>
-                            </div>
-                            <div class="form-group">
-                              <label class="control-label text-p-reset">Email</label>
-                              <div class="">
-                                <input type="email" value="<?php echo $row['email']; ?>" placeholder="Enter employee email" name="em_email" class="form-control rounded-0" required>
-                              </div>
-                            </div>
-                      
+                                                  
                             <div class="form-group">
                             </div>
                             <div class="form-group">
                               <div class="col-sm-offset-4 col-sm-3">
-                                <button type="submit" name="update_current_employee" class="btn btn-primary-custom">Update Now</button>
+                                <button type="submit" name="update_current_vehicle" class="btn btn-primary-custom">Update Now</button>
                               </div>
                             </div>
                           </form> 
-                        </div>
-                        <div class="col-md-5">
-                          <a id="emlpoyee_pass_btn" href="javascript:void(0)" class="">Change Password</a>
-                          <form action="" method="POST" id="employee_pass_cng">
-                            <div class="form-group">
-                              <label for="admin_password">New Password:</label>
-                              <input type="password" name="employee_password" class="form-control rounded-0" id="employee_password" min="8" required>
-                            </div>
-                            <div class="form-group">
-                              <button type="submit" name="btn_user_password" class="btn btn-primary rounded-0 btn-sm">Ok</button>
-
-                            </div>
-                          </form>
                         </div>
                       </div>
 

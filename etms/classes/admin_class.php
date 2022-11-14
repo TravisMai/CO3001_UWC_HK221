@@ -34,10 +34,10 @@ class Admin_Class
 
     public function admin_login_check($data) {
         
-        // $upass = $this->test_form_input_data(md5($data['admin_password']));
-		// $username = $this->test_form_input_data($data['username']);
-		$upass = $this->test_form_input_data(md5("admin123"));
-		$username = $this->test_form_input_data("admin");
+        $upass = $this->test_form_input_data(md5($data['admin_password']));
+		$username = $this->test_form_input_data($data['username']);
+		// $upass = $this->test_form_input_data(md5("admin123"));
+		// $username = $this->test_form_input_data("admin");
         try
        {
           $stmt = $this->db->prepare("SELECT * FROM tbl_admin WHERE username=:uname AND password=:upass LIMIT 1");
@@ -205,6 +205,26 @@ class Admin_Class
 			echo $e->getMessage();
 		}
 	}
+
+/* ---------update_vehicle_data----------*/
+
+public function update_vehicle_data($data, $id){
+	$vehicle_name  = $this->test_form_input_data($data['vehicle_name']);
+	try{
+		$update_vehicle = $this->db->prepare("UPDATE vehicle_info SET vehicle_name = :x WHERE vehicle_id = :id ");
+
+		$update_vehicle->bindparam(':x', $vehicle_name);
+		$update_vehicle->bindparam(':id', $vehicle_id);
+		
+		$update_vehicle->execute();
+
+		$_SESSION['update_vehicle'] = 'update_vehicle';
+
+		header('Location: admin-manage-vehicle.php');
+	}catch (PDOException $e) {
+		echo $e->getMessage();
+	}
+}	
 
 
 /* ------------update_admin_data-------------------- */
@@ -461,21 +481,26 @@ class Admin_Class
 		}
 	}
 
-/*----------- add_new_vehicle--------------*/
 
+	
+/*----------- add_new_vehicle--------------*/
 public function add_new_vehicle($data){
 	$vehicle_name  = $this->test_form_input_data($data['vehicle_name']);
 	$vehicle_status = 0;
-	
-	$add_vehicle = $this->db->prepare("INSERT INTO vehicle_info (vehicle_name, status) VALUES (:y, :z)");
+	try{
+		$add_vehicle = $this->db->prepare("INSERT INTO vehicle_info (vehicle_name, status) VALUES (:y, :z)");
 
-	$add_vehicle->bindparam(':y', $vehicle_name);
-	$add_vehicle->bindparam(':z', $vehicle_status);
+		$add_vehicle->bindparam(':y', $vehicle_name);
+		$add_vehicle->bindparam(':z', $vehicle_status);
 
-	$add_user->execute();
+		$add_user->execute();
+	}catch (PDOException $e) {
+		echo $e->getMessage();
+	}
 	
 }
 
+/*   */
 
 
 }
