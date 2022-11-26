@@ -53,12 +53,6 @@ $row = $info->fetch(PDO::FETCH_ASSOC);
 			                    </div>
 			                  </div>
 			                  <div class="form-group">
-			                    <label class="control-label text-p-reset">Task Description</label>
-			                    <div class="">
-			                      <textarea name="task_description" id="task_description" placeholder="Text Deskcription" class="form-control rounded-0" rows="5" cols="5"><?php echo $row['t_description']; ?></textarea>
-			                    </div>
-			                  </div>
-			                  <div class="form-group">
 			                    <label class="control-label text-p-reset">Strat Time</label>
 			                    <div class="">
 			                      <input type="text" name="t_start_time" id="t_start_time"  class="form-control rounded-0" value="<?php echo $row['t_start_time']; ?>">
@@ -88,7 +82,22 @@ $row = $info->fetch(PDO::FETCH_ASSOC);
 			                        <?php } ?>
 			                      </select>
 			                    </div>
-			                   
+			                  </div>
+							  <div class="form-group">
+			                    <label class="control-label text-p-reset">Phương Tiện</label>
+			                    <div class="">
+			                      <?php 
+			                        $sql = "SELECT * FROM `vehicle_info`;";
+			                        $info = $obj_admin->manage_all_info($sql);   
+			                      ?>
+			                      <select class="form-control rounded-0" name="assign_to" id="aassign_to" <?php if($user_role != 1){ ?> disabled="true" <?php } ?>>
+			                        <option value="">None</option>
+
+			                        <?php while($rows = $info->fetch(PDO::FETCH_ASSOC)){ ?>
+			                        <option><?php echo $rows['vehicle_name']; ?></option>
+			                        <?php } ?>
+			                      </select>
+			                    </div>
 			                  </div>
 
 			                   <div class="form-group">

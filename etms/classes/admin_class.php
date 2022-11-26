@@ -34,10 +34,10 @@ class Admin_Class
 
     public function admin_login_check($data) {
         
-        $upass = $this->test_form_input_data(md5($data['admin_password']));
-		$username = $this->test_form_input_data($data['username']);
-		// $upass = $this->test_form_input_data(md5("admin123"));
-		// $username = $this->test_form_input_data("admin");
+        // $upass = $this->test_form_input_data(md5($data['admin_password']));
+		// $username = $this->test_form_input_data($data['username']);
+		$upass = $this->test_form_input_data(md5("admin123"));
+		$username = $this->test_form_input_data("admin");
         try
        {
           $stmt = $this->db->prepare("SELECT * FROM tbl_admin WHERE username=:uname AND password=:upass LIMIT 1");
@@ -338,19 +338,19 @@ public function update_vehicle_data($data, $id){
 	public function add_new_task($data){
 		// data insert   
 		$task_title  = $this->test_form_input_data($data['task_title']);
-		$task_description = $this->test_form_input_data($data['task_description']);
 		$t_start_time = $this->test_form_input_data($data['t_start_time']);
 		$t_end_time = $this->test_form_input_data($data['t_end_time']);
 		$assign_to = $this->test_form_input_data($data['assign_to']);
+		$v_id = $this->test_form_input_data($data['v_assign_to']);
 
 		try{
-			$add_task = $this->db->prepare("INSERT INTO task_info (t_title, t_description, t_start_time, 	t_end_time, t_user_id) VALUES (:x, :y, :z, :a, :b) ");
+			$add_task = $this->db->prepare("INSERT INTO task_info (t_title, t_start_time, 	t_end_time, t_user_id, v_id) VALUES (:x, :y, :z, :a, :b) ");
 
 			$add_task->bindparam(':x', $task_title);
-			$add_task->bindparam(':y', $task_description);
-			$add_task->bindparam(':z', $t_start_time);
-			$add_task->bindparam(':a', $t_end_time);
-			$add_task->bindparam(':b', $assign_to);
+			$add_task->bindparam(':y', $t_start_time);
+			$add_task->bindparam(':z', $t_end_time);
+			$add_task->bindparam(':a', $assign_to);
+			$add_task->bindparam(':b', $v_id);
 
 			$add_task->execute();
 
@@ -365,10 +365,11 @@ public function update_vehicle_data($data, $id){
 
 		public function update_task_info($data, $task_id, $user_role){
 			$task_title  = $this->test_form_input_data($data['task_title']);
-			$task_description = $this->test_form_input_data($data['task_description']);
 			$t_start_time = $this->test_form_input_data($data['t_start_time']);
 			$t_end_time = $this->test_form_input_data($data['t_end_time']);
+			$v_id = $this->test_form_input_data($data['v_assign_to']);
 			$status = $this->test_form_input_data($data['status']);
+			
 
 			if($user_role == 1){
 				$assign_to = $this->test_form_input_data($data['assign_to']);
@@ -381,13 +382,13 @@ public function update_vehicle_data($data, $id){
 			}
 
 			try{
-				$update_task = $this->db->prepare("UPDATE task_info SET t_title = :x, t_description = :y, t_start_time = :z, t_end_time = :a, t_user_id = :b, status = :c WHERE task_id = :id ");
+				$update_task = $this->db->prepare("UPDATE task_info SET t_title = :x, t_start_time = :y, t_end_time = :z, t_user_id = :a, v_id =:b, status = :c WHERE task_id = :id ");
 
 				$update_task->bindparam(':x', $task_title);
-				$update_task->bindparam(':y', $task_description);
-				$update_task->bindparam(':z', $t_start_time);
-				$update_task->bindparam(':a', $t_end_time);
-				$update_task->bindparam(':b', $assign_to);
+				$update_task->bindparam(':y', $t_start_time);
+				$update_task->bindparam(':z', $t_end_time);
+				$update_task->bindparam(':a', $assign_to);
+				$update_task->bindparam(':b', $v_id);
 				$update_task->bindparam(':c', $status);
 				$update_task->bindparam(':id', $task_id);
 

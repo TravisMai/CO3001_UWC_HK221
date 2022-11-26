@@ -57,9 +57,6 @@ $row = $info->fetch(PDO::FETCH_ASSOC);
 				                        <td>Task Title</td><td><?php echo $row['t_title']; ?></td>
 				                      </tr>
 				                      <tr>
-				                        <td>Description</td><td><?php echo $row['t_description']; ?></td>
-				                      </tr>
-				                      <tr>
 				                        <td>Start Time</td><td><?php echo $row['t_start_time']; ?></td>
 				                      </tr>
 				                      <tr>

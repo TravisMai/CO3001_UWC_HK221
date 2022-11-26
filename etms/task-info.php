@@ -2,7 +2,7 @@
 
 require 'authentication.php'; // admin authentication check 
 
-// auth check
+#auth check
 $user_id = $_SESSION['admin_id'];
 $user_name = $_SESSION['name'];
 $security_key = $_SESSION['security_key'];
@@ -11,7 +11,7 @@ if ($user_id == NULL || $security_key == NULL) {
 }
 
 // check admin
-$user_role = $_SESSION['user_role'];
+$user_role = 1; //$_SESSION['user_role'];
 
 
 if(isset($_GET['delete_task'])){
@@ -88,14 +88,14 @@ include("include/sidebar.php");
                     <label class="control-label text-p-reset">Phương tiện</label>
                     <div class="">
                       <?php 
-                        $sql = "SELECT user_id, fullname FROM tbl_admin WHERE user_role = 2";
+                        $sql = "SELECT * FROM `vehicle_info`;";
                         $info = $obj_admin->manage_all_info($sql);   
                       ?>
-                      <select class="form-control rounded-0" name="assign_to" id="aassign_to" required>
+                      <select class="form-control rounded-0" name="v_assign_to" id="aassign_to" >
                         <option value="">Chọn phương tiện...</option>
 
                         <?php while($row = $info->fetch(PDO::FETCH_ASSOC)){ ?>
-                        <option value="<?php echo $row['user_id']; ?>"><?php echo $row['fullname']; ?></option>
+                        <option><?php echo $row['vehicle_name']; ?></option>
                         <?php } ?>
                       </select>
                     </div>
@@ -220,7 +220,8 @@ include("include/sidebar.php");
                     
                   </td>
   
-                 <td><a title="Update Task"  href="edit-task.php?task_id=<?php echo $row['task_id'];?>"><span class="glyphicon glyphicon-edit"></span></a>&nbsp;&nbsp;
+                 <td>
+                  <!-- <a title="Update Task"  href="edit-task.php?task_id=<?php echo $row['task_id'];?>"><span class="glyphicon glyphicon-edit"></span></a>&nbsp;&nbsp; -->
                   <a title="View" href="task-details.php?task_id=<?php echo $row['task_id']; ?>"><span class="glyphicon glyphicon-folder-open"></span></a>&nbsp;&nbsp;
                   <?php if($user_role == 1){ ?>
                   <a title="Delete" href="?delete_task=delete_task&task_id=<?php echo $row['task_id']; ?>" onclick=" return check_delete();"><span class="glyphicon glyphicon-trash"></span></a></td>

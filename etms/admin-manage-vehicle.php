@@ -23,9 +23,9 @@ if(isset($_GET['delete_vehicle'])){
   $delete_task = $obj_admin->db->prepare($task_sql);
   $delete_task->execute();
 
-  $sql = "DELETE FROM vehicle_info WHERE user_id = :id";
-  $sent_po = "admin-manage-vehicle.php";
-  $obj_admin->delete_data_by_this_method($sql,$action_id,$sent_po);
+  $attendance_sql = "DELETE FROM vehicle_info WHERE vehicle_id = $action_id";
+  $delete_vehicle = $obj_admin->db->prepare($attendance_sql);
+  $delete_vehicle->execute();
 
 }
 
@@ -142,7 +142,7 @@ if(isset($_POST['add_new_vehicle'])){
               <tbody>
 
               <?php 
-                $sql = "SELECT * FROM vehicle_info ORDER BY vehicle_id ASC";
+                $sql = "SELECT * FROM `vehicle_info`;";
                 $info = $obj_admin->manage_all_info($sql);
                 $serial  = 1;
                 $num_row = $info->rowCount();
@@ -158,7 +158,7 @@ if(isset($_POST['add_new_vehicle'])){
                   <td><?php echo $row['status']; ?></td>
                   
                   
-                  <td><a title="Update Vehicle" href="update-vehicle.php?vehicle_id=<?php echo $row['vehicle_id']; ?>"><span class="glyphicon glyphicon-edit"></span></a>&nbsp;&nbsp;<a title="Delete" href="?delete_vehicle=delete_vehicle&vehicle_id=<?php echo $row['vehicle_id']; ?>" onclick=" return check_delete();"><span class="glyphicon glyphicon-trash"></span></a></td>
+                  <td><a title="Update Vehicle" href="update-vehicle.php?admin_id=<?php echo $row['user_id']; ?>"><span class="glyphicon glyphicon-edit"></span></a>&nbsp;&nbsp;<a title="Delete" href="?delete_vehicle=delete_vehicle&admin_id=<?php echo $row['user_id']; ?>" onclick=" return check_delete();"><span class="glyphicon glyphicon-trash"></span></a></td>
                 </tr>
                 
               <?php  } ?>
