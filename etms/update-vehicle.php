@@ -17,25 +17,25 @@ if ($user_role != 1) {
   header('Location: task-info.php');
 }
 
-$admin_id = $_GET['admin_id'];
+$vehicle_id = $_GET['vehicle_id'];
 
-if(isset($_POST['update_current_employee'])){
+if(isset($_POST['update_current_vehicle'])){
 
-    $obj_admin->update_user_data($_POST,$admin_id);
+    $obj_admin->update_vehicle_data($_POST,$vehicle_id);
 }
 
-if(isset($_POST['btn_user_password'])){
+if(isset($_POST['update_vehicle_status'])){
 
-    $obj_admin->update_user_password($_POST,$admin_id);
+    $obj_admin->update_vehicle_status($_POST,$vehicle_id);
 }
 
 
 
-$sql = "SELECT * FROM tbl_admin WHERE user_id='$admin_id' ";
+$sql = "SELECT * FROM vehicle_info WHERE vehicle_id='$vehicle_id' ";
 $info = $obj_admin->manage_all_info($sql);
 $row = $info->fetch(PDO::FETCH_ASSOC);
         
-$page_name="Admin";
+$page_name="Vehicle";
 include("include/sidebar.php");
 ?>
 
@@ -43,37 +43,26 @@ include("include/sidebar.php");
       <div class="col-md-12">
         <div class="well well-custom">
           <ul class="nav nav-tabs nav-justified nav-tabs-custom">
-            <li><a href="manage-admin.php">Manage Admin</a></li>
-            <li><a href="admin-manage-user.php">Manage Employee</a></li>
+            <li><a href="manage-admin.php">Quản lý</a></li>
+            <li><a href="admin-manage-user.php">Nhân viên</a></li>
+            <li><a href="admin-manage-vehicle.php">Phương tiện</a></li>
           </ul>
           <div class="gap"></div>
 
           <div class="row">
             <div class="col-md-10 col-md-offset-1">
               <div class="well">
-                <h3 class="text-center bg-primary" style="padding: 7px;">Edit Employee</h3><br>
+                <h3 class="text-center bg-primary" style="padding: 7px;">Thay đổi thông tin phương tiện</h3><br>
 
 
                       <div class="row">
                         <div class="col-md-7">
                           <form class="form-horizontal" role="form" action="" method="post" autocomplete="off">
+                                                   
                             <div class="form-group">
-                              <label class="control-label text-p-reset">Fullname</label>
+                              <label class="control-label text-p-reset">Tên phương tiện</label>
                               <div class="">
-                                <input type="text" value="<?php echo $row['fullname']; ?>" placeholder="Enter Employee Name" name="em_fullname" list="expense" class="form-control rounded-0" id="default" required>
-                              </div>
-                            </div>
-                            
-                            <div class="form-group">
-                              <label class="control-label text-p-reset">Username</label>
-                              <div class="">
-                                <input type="text" value="<?php echo $row['username']; ?>" placeholder="Enter Employee Username" name="em_username" class="form-control rounded-0" required>
-                              </div>
-                            </div>
-                            <div class="form-group">
-                              <label class="control-label text-p-reset">Email</label>
-                              <div class="">
-                                <input type="email" value="<?php echo $row['email']; ?>" placeholder="Enter employee email" name="em_email" class="form-control rounded-0" required>
+                                <input type="text" value="<?php echo $row['vehicle_name']; ?>" placeholder="Enter Vehicle Name" name="v_name" class="form-control rounded-0" required>
                               </div>
                             </div>
                       
@@ -81,22 +70,21 @@ include("include/sidebar.php");
                             </div>
                             <div class="form-group">
                               <div class="col-sm-offset-4 col-sm-3">
-                                <button type="submit" name="update_current_employee" class="btn btn-primary-custom">Update Now</button>
+                                <button type="submit" name="update_current_vehicle" class="btn btn-primary-custom">Thay đổi</button>
                               </div>
                             </div>
                           </form> 
                         </div>
+                        
                         <div class="col-md-5">
-                          <a id="emlpoyee_pass_btn" href="javascript:void(0)" class="">Change Password</a>
-                          <form action="" method="POST" id="employee_pass_cng">
+                          <form action="" method="POST" id="vehicle_status_change">
                             <div class="form-group">
-                              <label for="admin_password">New Password:</label>
-                              <input type="password" name="employee_password" class="form-control rounded-0" id="employee_password" min="8" required>
-                            </div>
-                            <div class="form-group">
-                              <button type="submit" name="btn_user_password" class="btn btn-primary rounded-0 btn-sm">Ok</button>
-
-                            </div>
+                              <label for="vehicle_status">Status</label>
+                              <select name="vehicle_status" id="v_stt">
+                                <option value = 0>Sẵn sàng</option>
+                                <option value = 2>Không sẵn sàng</option>
+                              </select>
+                              <button type="submit" name="update_vehicle_status" class="btn btn-primary-custom">Xác nhận</button>
                           </form>
                         </div>
                       </div>

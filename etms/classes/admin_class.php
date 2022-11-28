@@ -227,6 +227,27 @@ public function update_vehicle_data($data, $id){
 }	
 
 
+/* ---------update_vehicle_status----------*/
+
+public function update_vehicle_status($data, $id){
+	$vehicle_status  = $this->test_form_input_data($data['vehicle_status']);
+	try{
+		$update_vehicle = $this->db->prepare("UPDATE vehicle_info SET status = :x WHERE vehicle_id = :id ");
+
+		$update_vehicle->bindparam(':x', $vehicle_status);
+		$update_vehicle->bindparam(':id', $vehicle_id);
+		
+		$update_vehicle->execute();
+
+		$_SESSION['update_vehicle'] = 'update_vehicle';
+
+		header('Location: admin-manage-vehicle.php');
+	}catch (PDOException $e) {
+		echo $e->getMessage();
+	}
+}	
+
+
 /* ------------update_admin_data-------------------- */
 
 	public function update_admin_data($data, $id){

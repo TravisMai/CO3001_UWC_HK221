@@ -17,15 +17,11 @@ if($user_role != 1){
 
 
 if(isset($_GET['delete_vehicle'])){
-  $action_id = $_GET['admin_id'];
+  $vehicle_id = $_GET['vehicle_id'];
 
-  $task_sql = "DELETE FROM task_info WHERE v_id = $action_id";
+  $task_sql = "DELETE FROM vehicle_info WHERE vehicle_id = $vehicle_id";
   $delete_task = $obj_admin->db->prepare($task_sql);
   $delete_task->execute();
-
-  $attendance_sql = "DELETE FROM vehicle_info WHERE vehicle_id = $action_id";
-  $delete_vehicle = $obj_admin->db->prepare($attendance_sql);
-  $delete_vehicle->execute();
 
 }
 
@@ -158,7 +154,8 @@ if(isset($_POST['add_new_vehicle'])){
                   <td><?php echo $row['status']; ?></td>
                   
                   
-                  <td><a title="Update Vehicle" href="update-vehicle.php?admin_id=<?php echo $row['user_id']; ?>"><span class="glyphicon glyphicon-edit"></span></a>&nbsp;&nbsp;<a title="Delete" href="?delete_vehicle=delete_vehicle&admin_id=<?php echo $row['user_id']; ?>" onclick=" return check_delete();"><span class="glyphicon glyphicon-trash"></span></a></td>
+                  <td><a title="Update Vehicle" href="update-vehicle.php?vehicle_id=<?php echo $row['vehicle_id']; ?>"><span class="glyphicon glyphicon-edit"></span></a>&nbsp;&nbsp;<a title="Delete" href="?delete_vehicle=delete_vehicle&vehicle_id=<?php echo $row['vehicle_id']; ?>"><span class="glyphicon glyphicon-trash"></span>
+              </a></td>
                 </tr>
                 
               <?php  } ?>
