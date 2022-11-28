@@ -63,21 +63,7 @@ if(isset($_POST['add_new_vehicle'])){
                       <input type="text" placeholder="Tên phương tiện" name="vehicle_name" list="expense" class="form-control input-custom" id="default" required>
                     </div>
                   </div>
-                   <!-- <div class="form-group">
-                    <label class="control-label text-p-reset">Tên đăng nhập</label>
-                    <div class="">
-                      <input type="text" placeholder="Tên dăng nhập của nhân viên" name="em_username" class="form-control input-custom" required>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label text-p-reset">Email</label>
-                    <div class="">
-                      <input type="email" placeholder="Email nhân viên" name="em_email" class="form-control input-custom" required>
-                    </div>
-                  </div> -->
-                  
-                 
-                  
+                   
                   <div class="form-group">
                   </div>
                   <div class="form-group">

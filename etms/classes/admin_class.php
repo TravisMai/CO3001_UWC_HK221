@@ -209,12 +209,12 @@ class Admin_Class
 /* ---------update_vehicle_data----------*/
 
 public function update_vehicle_data($data, $id){
-	$vehicle_name  = $this->test_form_input_data($data['vehicle_name']);
+	$vehicle_name  = $this->test_form_input_data($data['v_name']);
 	try{
 		$update_vehicle = $this->db->prepare("UPDATE vehicle_info SET vehicle_name = :x WHERE vehicle_id = :id ");
 
 		$update_vehicle->bindparam(':x', $vehicle_name);
-		$update_vehicle->bindparam(':id', $vehicle_id);
+		$update_vehicle->bindparam(':id', $id);
 		
 		$update_vehicle->execute();
 
@@ -224,7 +224,7 @@ public function update_vehicle_data($data, $id){
 	}catch (PDOException $e) {
 		echo $e->getMessage();
 	}
-}	
+}
 
 
 /* ---------update_vehicle_status----------*/
@@ -235,7 +235,7 @@ public function update_vehicle_status($data, $id){
 		$update_vehicle = $this->db->prepare("UPDATE vehicle_info SET status = :x WHERE vehicle_id = :id ");
 
 		$update_vehicle->bindparam(':x', $vehicle_status);
-		$update_vehicle->bindparam(':id', $vehicle_id);
+		$update_vehicle->bindparam(':id', $id);
 		
 		$update_vehicle->execute();
 
@@ -245,7 +245,7 @@ public function update_vehicle_status($data, $id){
 	}catch (PDOException $e) {
 		echo $e->getMessage();
 	}
-}	
+}
 
 
 /* ------------update_admin_data-------------------- */
@@ -363,15 +363,17 @@ public function update_vehicle_status($data, $id){
 		$t_end_time = $this->test_form_input_data($data['t_end_time']);
 		$assign_to = $this->test_form_input_data($data['assign_to']);
 		$v_id = $this->test_form_input_data($data['v_assign_to']);
+		$route = $this->test_form_input_data($data['r_assign_to']);
 
 		try{
-			$add_task = $this->db->prepare("INSERT INTO task_info (t_title, t_start_time, 	t_end_time, t_user_id, v_id) VALUES (:x, :y, :z, :a, :b) ");
+			$add_task = $this->db->prepare("INSERT INTO task_info (t_title, t_start_time, 	t_end_time, t_user_id, v_id, `route`) VALUES (:x, :y, :z, :a, :b, :c) ");
 
 			$add_task->bindparam(':x', $task_title);
 			$add_task->bindparam(':y', $t_start_time);
 			$add_task->bindparam(':z', $t_end_time);
 			$add_task->bindparam(':a', $assign_to);
 			$add_task->bindparam(':b', $v_id);
+			$add_task->bindparam(':c', $route);
 
 			$add_task->execute();
 

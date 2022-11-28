@@ -20,8 +20,7 @@ if ($user_role != 1) {
 $vehicle_id = $_GET['vehicle_id'];
 
 if(isset($_POST['update_current_vehicle'])){
-
-    $obj_admin->update_vehicle_data($_POST,$vehicle_id);
+    $obj_admin->update_vehicle_data($_POST, $vehicle_id);
 }
 
 if(isset($_POST['update_vehicle_status'])){
@@ -57,12 +56,11 @@ include("include/sidebar.php");
 
                       <div class="row">
                         <div class="col-md-7">
-                          <form class="form-horizontal" role="form" action="" method="post" autocomplete="off">
-                                                   
+                          <form class="form-horizontal" role="form" action="" method="post" autocomplete="off">                    
                             <div class="form-group">
                               <label class="control-label text-p-reset">Tên phương tiện</label>
-                              <div class="">
-                                <input type="text" value="<?php echo $row['vehicle_name']; ?>" placeholder="Enter Vehicle Name" name="v_name" class="form-control rounded-0" required>
+                              <div class="col-sm-8">
+                                <input type="text" value="<?php echo $row['vehicle_name']; ?>" placeholder="Enter Vehicle Name" name="v_name" list="expense" class="form-control rounded-0" id="default" required>
                               </div>
                             </div>
                       
@@ -77,7 +75,7 @@ include("include/sidebar.php");
                         </div>
                         
                         <div class="col-md-5">
-                          <form action="" method="POST" id="vehicle_status_change">
+                          <form role="form" action="" method="POST" id="vehicle_status_change">
                             <div class="form-group">
                               <label for="vehicle_status">Status</label>
                               <select name="vehicle_status" id="v_stt">
@@ -85,6 +83,7 @@ include("include/sidebar.php");
                                 <option value = 2>Không sẵn sàng</option>
                               </select>
                               <button type="submit" name="update_vehicle_status" class="btn btn-primary-custom">Xác nhận</button>
+                            </div>
                           </form>
                         </div>
                       </div>
