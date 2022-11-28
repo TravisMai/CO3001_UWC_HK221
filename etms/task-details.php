@@ -54,27 +54,29 @@ $row = $info->fetch(PDO::FETCH_ASSOC);
 				                  <table class="table table-bordered table-single-product">
 				                    <tbody>
 				                      <tr>
-				                        <td>Task Title</td><td><?php echo $row['t_title']; ?></td>
+				                        <td>Công việc</td><td><?php echo $row['t_title']; ?></td>
 				                      </tr>
 				                      <tr>
-				                        <td>Start Time</td><td><?php echo $row['t_start_time']; ?></td>
+				                        <td>Bắt đầu</td><td><?php echo $row['t_start_time']; ?></td>
 				                      </tr>
 				                      <tr>
-				                        <td>End Time</td><td><?php echo $row['t_end_time']; ?></td>
+				                        <td>Kết thúc</td><td><?php echo $row['t_end_time']; ?></td>
 				                      </tr>
 				                      <tr>
-				                        <td>Assign To</td><td><?php echo $row['fullname']; ?></td>
+				                        <td>Giao đến</td><td><?php echo $row['fullname']; ?></td>
 				                      </tr>
 				                      <tr>
-				                        <td>Status</td><td><?php  if($row['status'] == 1){
-											                        echo "In Progress";
+				                        <td>Trạng thái</td><td><?php  if($row['status'] == 1){
+											                        echo "Trong tiến trình";
 											                    }elseif($row['status'] == 2){
-											                       echo "Completed";
+											                       echo "Đã hoàn thành";
 											                    }else{
-											                      echo "Incomplete";
+											                      echo "Chưa bắt đầu";
 											                    } ?></td>
 				                      </tr>
-
+									  <tr>
+				                        <td>Lộ trình</td><td><?php echo $row['fullname']; ?></td>
+				                      </tr>							
 				                    </tbody>
 				                  </table>
 				                </div>
