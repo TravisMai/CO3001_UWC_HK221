@@ -45,7 +45,7 @@ $row = $info->fetch(PDO::FETCH_ASSOC);
 	<div class="col-md-12">
 		<div class="well well-custom">
 			<div class="row">
-				<div class="col-md-8 col-md-offset-2">
+				<div class="col-md-10 col-md-offset-1">
 					<div class="well">
 						<h3 class="text-center bg-primary" style="padding: 7px;">Chi tiết công việc </h3><br>
 
@@ -89,11 +89,11 @@ $row = $info->fetch(PDO::FETCH_ASSOC);
 												<td>Trạng thái</td>
 												<td>
 													<?php if ($row['status'] == 1) {
-	                                                    echo "Trong tiến trình";
+	                                                    echo '<small class="label label-warning px-3">Trong tiến trình <span class="glyphicon glyphicon-refresh" ></small>';
                                                     } elseif ($row['status'] == 2) {
-	                                                    echo "Đã hoàn thành";
+	                                                    echo '<small class="label label-success px-3">Đã hoành thành <span class="glyphicon glyphicon-ok" ></small>';
                                                     } else {
-	                                                    echo "Chưa bắt đầu";
+	                                                    echo '<small class="label label-default border px-3">Chưa hoàn thành <span class="glyphicon glyphicon-remove" ></small>';
                                                     } ?>
 												</td>
 											</tr>
