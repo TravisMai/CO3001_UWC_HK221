@@ -43,29 +43,30 @@ include("include/sidebar.php");
       <div class="col-md-12">
         <div class="well well-custom">
           <ul class="nav nav-tabs nav-justified nav-tabs-custom">
-            <li><a href="manage-admin.php">Manage Admin</a></li>
-            <li><a href="admin-manage-user.php">Manage Employee</a></li>
+            <li><a href="manage-admin.php">Quản lý</a></li>
+            <li><a href="admin-manage-user.php">Nhân viên</a></li>
+            <li><a href="admin-manage-vehicle.php">Phương tiện</a></li>
           </ul>
           <div class="gap"></div>
 
           <div class="row">
             <div class="col-md-10 col-md-offset-1">
               <div class="well">
-                <h3 class="text-center bg-primary" style="padding: 7px;">Edit Employee</h3><br>
+                <h3 class="text-center bg-primary" style="padding: 7px;">Chỉnh sửa nhân viên</h3><br>
 
 
                       <div class="row">
                         <div class="col-md-7">
                           <form class="form-horizontal" role="form" action="" method="post" autocomplete="off">
                             <div class="form-group">
-                              <label class="control-label text-p-reset">Fullname</label>
+                              <label class="control-label text-p-reset">Tên</label>
                               <div class="">
                                 <input type="text" value="<?php echo $row['fullname']; ?>" placeholder="Enter Employee Name" name="em_fullname" list="expense" class="form-control rounded-0" id="default" required>
                               </div>
                             </div>
                             
                             <div class="form-group">
-                              <label class="control-label text-p-reset">Username</label>
+                              <label class="control-label text-p-reset">Tên đăng nhập</label>
                               <div class="">
                                 <input type="text" value="<?php echo $row['username']; ?>" placeholder="Enter Employee Username" name="em_username" class="form-control rounded-0" required>
                               </div>
@@ -81,16 +82,16 @@ include("include/sidebar.php");
                             </div>
                             <div class="form-group">
                               <div class="col-sm-offset-4 col-sm-3">
-                                <button type="submit" name="update_current_employee" class="btn btn-primary-custom">Update Now</button>
+                                <button type="submit" name="update_current_employee" class="btn btn-primary-custom">Thay đổi</button>
                               </div>
                             </div>
                           </form> 
                         </div>
                         <div class="col-md-5">
-                          <a id="emlpoyee_pass_btn" href="javascript:void(0)" class="">Change Password</a>
+                          <a id="emlpoyee_pass_btn" href="javascript:void(0)" class="">Đổi mật khẩu</a>
                           <form action="" method="POST" id="employee_pass_cng">
                             <div class="form-group">
-                              <label for="admin_password">New Password:</label>
+                              <label for="admin_password">Mật khẩu mới:</label>
                               <input type="password" name="employee_password" class="form-control rounded-0" id="employee_password" min="8" required>
                             </div>
                             <div class="form-group">
