@@ -45,7 +45,7 @@ $row = $info->fetch(PDO::FETCH_ASSOC);
           <div class="row">
             <div class="col-md-8 col-md-offset-2">
               <div class="well">
-                <h3 class="text-center bg-primary" style="padding: 7px;">Task Details </h3><br>
+                <h3 class="text-center bg-primary" style="padding: 7px;">Chi tiết công việc </h3><br>
 
                       <div class="row">
                         <div class="col-md-12">
@@ -84,7 +84,7 @@ $row = $info->fetch(PDO::FETCH_ASSOC);
                             <div class="form-group">
 
                               <div class="col-sm-3">
-                                <a title="Update Task"  href="task-info.php"><span class="btn btn-success-custom btn-xs">Go Back</span></a>
+                                <a title="Update Task"  href="task-info.php"><span class="btn btn-success-custom btn-xs">Trở về</span></a>
                               </div>
                             </div>
                           </form> 
