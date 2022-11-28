@@ -24,10 +24,10 @@ if(isset($_POST['update_current_vehicle'])){
     $obj_admin->update_vehicle_data($_POST,$vehicle_id);
 }
 
-// if(isset($_POST['btn_user_password'])){
+if(isset($_POST['update_vehicle_status'])){
 
-//     $obj_admin->update_user_password($_POST,$admin_id);
-// }
+    $obj_admin->update_vehicle_status($_POST,$vehicle_id);
+}
 
 
 
@@ -76,18 +76,17 @@ include("include/sidebar.php");
                           </form> 
                         </div>
                         
-                        <!-- <div class="col-md-5">
+                        <div class="col-md-5">
                           <form action="" method="POST" id="vehicle_status_change">
                             <div class="form-group">
-                              <label for="admin_password">Status</label>
-                              <input type="password" name="employee_password" class="form-control rounded-0" id="employee_password" min="8" required>
-                            </div>
-                            <div class="form-group">
-                              <button type="submit" name="btn_user_password" class="btn btn-primary rounded-0 btn-sm">Ok</button>
-
-                            </div>
+                              <label for="vehicle_status">Status</label>
+                              <select name="vehicle_status" id="v_stt">
+                                <option value = 0>Sẵn sàng</option>
+                                <option value = 2>Không sẵn sàng</option>
+                              </select>
+                              <button type="submit" name="update_vehicle_status" class="btn btn-primary-custom">Xác nhận</button>
                           </form>
-                        </div> -->
+                        </div>
                       </div>
 
               </div>
