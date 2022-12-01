@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 28, 2022 at 01:47 PM
+-- Generation Time: Dec 01, 2022 at 02:46 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `etms_db`
+-- Database: `uwc_db`
 --
 
 -- --------------------------------------------------------
@@ -90,7 +90,7 @@ CREATE TABLE `task_info` (
 INSERT INTO `task_info` (`task_id`, `t_title`, `t_start_time`, `t_end_time`, `t_user_id`, `v_id`, `route`, `status`) VALUES
 (11, 'fghfd', '2022-11-01 12:00:00', '2022-11-04 12:00:00', 28, 2, 3, 2),
 (25, 'fgh', '2022-11-01 12:00:00', '2022-11-05 12:00:00', 28, 4, 4, 1),
-(21, 'ryeretytre', '2022-11-01 12:00:00', '2022-11-19 12:00:00', 28, 1, 1, NULL);
+(21, 'ryeretytre', '2022-11-01 12:00:00', '2022-11-19 12:00:00', 28, 1, 1, 2);
 
 -- --------------------------------------------------------
 
