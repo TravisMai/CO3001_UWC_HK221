@@ -137,7 +137,17 @@ if(isset($_POST['add_new_vehicle'])){
                   
                   <td><?php echo $row['vehicle_id']; ?></td>
                   <td><?php echo $row['vehicle_name']; ?></td>
-                  <td><?php echo $row['status']; ?></td>
+                  <td><?php if ($row['status'] == 1) {
+                // echo "In Progress <span style='color:#5bcad9;' class=' glyphicon glyphicon-refresh' >";
+                echo '<small class="label label-warning px-3">Đang sử dụng</small>';
+              } elseif ($row['status'] == 0) {
+                echo '<small class="label label-success px-3">Sẵn sàng</small>';
+                // echo "Completed <span style='color:#00af16;' class=' glyphicon glyphicon-ok' >";
+              } else {
+                echo '<small class="label label-default border px-3">Tạm ngưng</small>';
+              } ?>
+                
+                </td>
                   
                   
                   <td><a title="Update Vehicle" href="update-vehicle.php?vehicle_id=<?php echo $row['vehicle_id']; ?>"><span class="glyphicon glyphicon-edit"></span></a>&nbsp;&nbsp;<a title="Delete" href="?delete_vehicle=delete_vehicle&vehicle_id=<?php echo $row['vehicle_id']; ?>"><span class="glyphicon glyphicon-trash"></span>

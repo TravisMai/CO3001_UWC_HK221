@@ -54,7 +54,7 @@ include("include/login_header.php");
 			<div class="form-group" ng-class="{'has-error': loginForm.password.$invalid && loginForm.password.$dirty, 'has-success': loginForm.password.$valid}">
 			<input type="password" class="form-control rounded-0" placeholder="Password" name="admin_password"/>
 			</div> -->
-			<button type="submit" name="login_btn" class="btn btn-info pull-right">Login</button>
+			<button type="submit" name="login_btn" class="btn btn-info pull-right">Đăng nhập</button>
 		</form>
 	</div>
 </div>
