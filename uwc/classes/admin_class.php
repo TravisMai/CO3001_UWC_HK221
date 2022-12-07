@@ -517,7 +517,7 @@ public function add_new_vehicle($data){
 		$add_vehicle->bindparam(':y', $vehicle_name);
 		$add_vehicle->bindparam(':z', $vehicle_status);
 
-		$add_user->execute();
+		$add_vehicle->execute();
 	}catch (PDOException $e) {
 		echo $e->getMessage();
 	}
