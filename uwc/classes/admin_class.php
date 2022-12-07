@@ -377,6 +377,15 @@ public function update_vehicle_status($data, $id){
 
 			$add_task->execute();
 
+			$update_vehicle = $this->db->prepare("UPDATE vehicle_info SET status = :x WHERE vehicle_id = :id ");
+
+			$stt = 1;
+
+			$update_vehicle->bindparam(':x', $stt);
+			$update_vehicle->bindparam(':id', $v_id);
+			
+			$update_vehicle->execute();
+
 			$_SESSION['Task_msg'] = 'Task Add Successfully';
 
 			header('Location: task-info.php');

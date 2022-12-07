@@ -15,9 +15,14 @@ $user_role = 1; //$_SESSION['user_role'];
 
 
 if (isset($_GET['delete_task'])) {
-  $action_id = $_GET['task_id'];
 
+  $action_id = $_GET['task_id'];
   $sql = "DELETE FROM task_info WHERE task_id = :id";
+  $sent_po = "task-info.php";
+  $obj_admin->delete_data_by_this_method($sql, $action_id, $sent_po);
+
+  $action_id = $_GET['v_id'];
+  $sql = "UPDATE vehicle_info SET status = 0 WHERE vehicle_id = :id";
   $sent_po = "task-info.php";
   $obj_admin->delete_data_by_this_method($sql, $action_id, $sent_po);
 }
@@ -91,7 +96,7 @@ include("include/sidebar.php");
                   <label class="control-label text-p-reset">Phương tiện</label>
                   <div class="">
                     <?php
-                    $sql = "SELECT * FROM `vehicle_info`;";
+                    $sql = "SELECT * FROM `vehicle_info` where status=0;";
                     $info = $obj_admin->manage_all_info($sql);
                     ?>
                     <select class="form-control rounded-0" name="v_assign_to" id="aassign_to">
@@ -257,7 +262,7 @@ include("include/sidebar.php");
                 <a title="View" href="task-details.php?task_id=<?php echo $row['task_id']; ?>"><span
                     class="glyphicon glyphicon-folder-open"></span></a>&nbsp;&nbsp;
                 <?php if ($user_role == 1) { ?>
-                <a title="Delete" href="?delete_task=delete_task&task_id=<?php echo $row['task_id']; ?>"
+                <a title="Delete" href="?delete_task=delete_task&task_id=<?php echo $row['task_id']; ?>&v_id=<?php echo $row['v_id']; ?>"
                   onclick=" return check_delete();"><span class="glyphicon glyphicon-trash"></span></a>
               </td>
               <?php } ?>
